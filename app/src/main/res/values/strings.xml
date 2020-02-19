@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">CarsInsurance</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="car_book">CAR BOOK</string>
+    <string name="insurance">INSURANCE</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="customer">CUSTOMER</string>
+    <string name="insurance_company">INSURANCE COMPANY</string>
+    <string name="or">OR</string>
+    <string name="login">LOGIN</string>
+    <string name="welcome_to">WELCOME TO</string>
+    <string name="car_book_insurance">CAR BOOK INSURANCE</string>
+    <string name="register">Register</string>
+    <string name="you_dont_have_account">You dont have account ?</string>
+    <string name="password">Password</string>
+    <string name="userName">User Name</string>
+    <string name="email">Email Address</string>
+    <string name="first_name_last_name">First Name / Last Name</string>
+    <string name="country">Country</string>
+    <string name="company">Company</string>
+    <string name="is_empty">Is Empty</string>
+    <string name="is_invalid">Is Invalid</string>
+    <string name="is_weak">is weak</string>
+    <string name="must_be_eight">It must contains 8 or more characters!</string>
+    <string name="must_contain_numbers">It must contain at least one number!</string>
+    <string name="must_contain_capital">It must contain at least one capital letters!</string>
+    <string name="must_contain_special">It must contain at least one special character!</string>
+    <string name="spaces_not_allowed">Spaces aren\'t allowed!</string>
+    <string name="loading">Loading...</string>
+    <string name="choose_photo">Choose Photo</string>
+    <string name="choose_file">Choose File</string>
+    <string name="from_gallery">From Gallary</string>
+    <string name="take_camera">Take Photo</string>
+    <string name="choose_video">Choose Video</string>
+    <string name="from_video">Take Video</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="get_location">Get Location</string>
+    <string name="pleaseOpenGPS">Please Open GPS</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="no_detected_address">No Detected Address</string>
+    <string name="you_must_give_permissions_location">You must give permissions location</string>
+    <string name="select_country">Select Country !</string>
+
+</resources>
