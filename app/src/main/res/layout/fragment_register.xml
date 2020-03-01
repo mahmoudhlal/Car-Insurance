@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.auth.register.RegisterFragment"
+    tools:context=".ui.auth.register.RegisterFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
@@ -132,6 +132,68 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+<!--
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="5dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/input_layout_email"
+            app:boxCornerRadiusBottomEnd="25dp"
+            app:boxCornerRadiusTopStart="25dp"
+            app:boxCornerRadiusTopEnd="25dp"
+            app:boxCornerRadiusBottomStart="25dp"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:boxStrokeWidth="2dp"
+
+            android:textColorHint="@color/colorGray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorGray"
+                android:id="@+id/input_email"
+                android:drawableStart="@drawable/ic_user"
+                android:layout_width="match_parent"
+                android:drawablePadding="5dp"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textAlignment="viewStart"
+                android:hint="@string/email" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="5dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/input_layout_bio"
+            app:boxCornerRadiusBottomEnd="25dp"
+            app:boxCornerRadiusTopStart="25dp"
+            app:boxCornerRadiusTopEnd="25dp"
+            app:boxCornerRadiusBottomStart="25dp"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:boxStrokeWidth="2dp"
+
+            android:textColorHint="@color/colorGray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorGray"
+                android:id="@+id/input_bio"
+                android:drawableStart="@drawable/ic_user"
+                android:layout_width="match_parent"
+                android:drawablePadding="5dp"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textAlignment="viewStart"
+                android:hint="@string/bio" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -218,6 +280,7 @@
 
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:layout_width="match_parent"
+                    android:layout_marginStart="15dp"
                     android:layout_height="match_parent"
                     android:id="@+id/countrySpinner"
                     />

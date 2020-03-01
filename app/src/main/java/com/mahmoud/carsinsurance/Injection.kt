@@ -3,9 +3,10 @@ package com.mahmoud.carsinsurance
 import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import com.mahmoud.carsinsurance.Utils.SharedPrefManager
-import com.mahmoud.carsinsurance.fragment.user.home.ViewModel.CompanyViewModelFactory
-import com.mahmoud.carsinsurance.fragment.user.home.repository.CompanyRepository
-import com.mahmoud.carsinsurance.fragment.user.home.repository.CompanyRepositoryImpl
+import com.mahmoud.carsinsurance.ui.user.home.ViewModel.CompanyViewModelFactory
+import com.mahmoud.carsinsurance.ui.user.home.ViewModel.OrderViewModelFactory
+import com.mahmoud.carsinsurance.ui.user.home.ViewModel.NotificationViewModelFactory
+import com.mahmoud.carsinsurance.ui.user.home.repository.*
 import java.util.concurrent.Executors
 
 /**
@@ -34,6 +35,41 @@ object Injection {
     fun provideViewModelFactory(context: Context): ViewModelProvider.Factory {
         return CompanyViewModelFactory(provideCompanyRepository(context))
     }
+
+
+    /**
+     * Creates an instance of [OrderRepository] based on the [provideToken]
+     */
+    private fun provideOrderRepository(context: Context): OrderRepository {
+        return OrderRepositoryImpl(provideToken(context))
+    }
+
+
+    /**
+     * Provides the [ViewModelProvider.Factory] that is then used to get a reference to
+     * [ViewModel] objects.
+     */
+    fun provideOrderViewModelFactory(context: Context): ViewModelProvider.Factory {
+        return OrderViewModelFactory(provideOrderRepository(context))
+    }
+
+
+
+    /**
+     * Creates an instance of [NotificationRepository] based on the [provideToken]
+     */
+    private fun provideNotificationRepository(context: Context): NotificationRepository {
+        return NotificationRepositoryImpl(provideToken(context))
+    }
+    /**
+     * Provides the [ViewModelProvider.Factory] that is then used to get a reference to
+     * [ViewModel] objects.
+     */
+    fun provideNotificationViewModelFactory(context: Context): ViewModelProvider.Factory {
+        return NotificationViewModelFactory(provideNotificationRepository(context))
+    }
+
+
 
     private fun provideToken(context: Context): String? {
         return SharedPrefManager.getInstance(context)?.getToken()

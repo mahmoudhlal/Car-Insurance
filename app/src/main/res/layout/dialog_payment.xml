@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="8dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:gravity="start|center_vertical"
+                android:padding="8dp"
+                android:hint="@string/card_no"
+                android:layout_weight="2"
+                android:textSize="14sp"
+                android:id="@+id/edtCardNum"
+                android:layout_margin="4dp"
+                android:background="@drawable/shape_border_semi_rounded"
+                />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:gravity="start|center_vertical"
+                android:padding="8dp"
+                android:hint="@string/expiration_date"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:id="@+id/edtExpiration"
+                android:layout_margin="4dp"
+                android:enabled="false"
+                android:clickable="true"
+                android:background="@drawable/shape_border_semi_rounded"
+                />
+
+            </LinearLayout>
+
+          <LinearLayout
+              android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:gravity="start|center_vertical"
+                android:padding="8dp"
+                android:hint="@string/card_holder"
+                android:layout_weight="2"
+                android:textSize="14sp"
+                android:id="@+id/edtCardHolder"
+                android:layout_margin="4dp"
+                android:background="@drawable/shape_border_semi_rounded"
+                />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:gravity="start|center_vertical"
+                android:padding="8dp"
+                android:hint="@string/money"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:id="@+id/edtMoney"
+                android:layout_margin="4dp"
+                android:background="@drawable/shape_border_semi_rounded"
+                />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="start|center_vertical"
+                android:padding="8dp"
+                android:layout_marginTop="10dp"
+                android:hint="@string/cvv"
+                android:textSize="14sp"
+                android:id="@+id/edtCVV"
+                android:inputType="textPassword"
+                android:layout_margin="4dp"
+                android:background="@drawable/shape_border_semi_rounded"
+                />
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sendMsg"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/shape_btn_login"
+                android:textColor="@color/colorWhite"
+                android:gravity="center"
+                android:text="@string/confirm_pay"
+                />
+
+        </LinearLayout>
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/relProgress"
+            android:background="@color/colorGrayAlpha"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

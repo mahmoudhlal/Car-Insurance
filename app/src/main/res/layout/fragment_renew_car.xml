@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.user.company.tabs.RenewCarFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:layout_marginTop="15dp"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="4dp"
+            android:layout_margin="6dp"
+            android:id="@+id/btnAddAttachs"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="center_vertical"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_photo_camera"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recAttatchments"
+            />
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="55dp">
+
+    <EditText
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:hint="@string/address"
+        android:layout_marginStart="20dp"
+        android:visibility="visible"
+        android:enabled="false"
+        android:clickable="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/shape_border"
+        android:id="@+id/edtAddress"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:padding="5dp"
+        android:textColor="@color/colorBlack"
+        />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/relAddress"
+            />
+
+    </RelativeLayout>
+
+
+    <EditText
+        android:hint="@string/fees"
+        android:layout_marginStart="20dp"
+        android:visibility="visible"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/shape_border"
+        android:id="@+id/edtFeees"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:padding="5dp"
+        android:enabled="false"
+        android:clickable="true"
+        android:textColor="@color/colorBlack"
+        />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:background="@drawable/shape_btn_login"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="12sp"
+        android:id="@+id/btnReSave"
+        android:text="@string/save"
+        android:textColor="@color/colorWhite"
+        />
+
+
+
+</LinearLayout>
+
+

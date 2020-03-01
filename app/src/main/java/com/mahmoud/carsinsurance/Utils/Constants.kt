@@ -1,5 +1,7 @@
 package com.mahmoud.carsinsurance.Utils
 
+import com.mahmoud.carsinsurance.R
+
 class Constants {
     companion object {
         const val GALLERY = 3
@@ -19,5 +21,8 @@ class Constants {
         const val COMPANY = "company"
         var CURRENT_ROLE: String? = null
         var IS_FILE = false
+        var offers = arrayListOf("Best offers","pay 1020 per month","save your car",
+            "best offers","pay 1020 per month","Save your car")
+        var collers = arrayOf(R.color.colorAccent,R.color.colorAccent,R.color.colorAccent,R.color.colorAccent)
     }
 }

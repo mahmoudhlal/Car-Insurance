@@ -19,5 +19,8 @@ data class CompaniesItem(
 	val type: String? = null,
 
 	@field:SerializedName("email")
-	val email: String? = null
+	val email: String? = null,
+
+	@field:SerializedName("details")
+	val details: String? = null
 )

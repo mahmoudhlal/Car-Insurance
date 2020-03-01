@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.mahmoud.carsinsurance.fragment.splash.SplashFragment"
+        android:name="com.mahmoud.carsinsurance.ui.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -60,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.mahmoud.carsinsurance.fragment.auth.login.LoginFragment"
+        android:name="com.mahmoud.carsinsurance.ui.auth.login.LoginFragment"
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_adminFragment"
@@ -102,7 +102,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.mahmoud.carsinsurance.fragment.main.MainFragment"
+        android:name="com.mahmoud.carsinsurance.ui.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -123,7 +123,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.mahmoud.carsinsurance.fragment.auth.register.RegisterFragment"
+        android:name="com.mahmoud.carsinsurance.ui.auth.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -164,21 +164,68 @@
     </fragment>
     <fragment
         android:id="@+id/adminFragment"
-        android:name="com.mahmoud.carsinsurance.fragment.admin.AdminFragment"
+        android:name="com.mahmoud.carsinsurance.ui.admin.AdminFragment"
         android:label="fragment_admin"
         tools:layout="@layout/fragment_admin" />
     <fragment
         android:id="@+id/userHomeFragment"
-        android:name="com.mahmoud.carsinsurance.fragment.user.home.UserHomeFragment"
+        android:name="com.mahmoud.carsinsurance.ui.user.home.UserHomeFragment"
         android:label="fragment_user_home"
-        tools:layout="@layout/fragment_user_home" />
+        tools:layout="@layout/fragment_user_home" >
+        <action
+            android:id="@+id/action_userHomeFragment_to_companyDetailsFragment"
+            app:destination="@id/companyDetailsFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+        <action
+            android:id="@+id/action_userHomeFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
     <fragment
         android:id="@+id/companyHomeFragment"
-        android:name="com.mahmoud.carsinsurance.fragment.company.CompanyHomeFragment"
+        android:name="com.mahmoud.carsinsurance.ui.company.CompanyHomeFragment"
         android:label="fragment_company_home"
-        tools:layout="@layout/fragment_company_home" />
+        tools:layout="@layout/fragment_company_home" >
+        <action
+            android:id="@+id/action_companyHomeFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+    </fragment>
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.mahmoud.carsinsurance.fragment.maps.MapFragment"
+        android:name="com.mahmoud.carsinsurance.ui.maps.MapFragment"
         android:label="MapFragment" />
+    <fragment
+        android:id="@+id/companyDetailsFragment"
+        android:name="com.mahmoud.carsinsurance.ui.user.company.CompanyDetailsFragment"
+        android:label="fragment_company_details"
+        tools:layout="@layout/fragment_company_details" >
+        <action
+            android:id="@+id/action_companyDetailsFragment_to_mapFragment"
+            app:destination="@id/mapFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.mahmoud.carsinsurance.ui.user.notification.NotificationFragment"
+        android:label="NotificationFragment" />
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.mahmoud.carsinsurance.ui.company.OrderDetailsFragment"
+        android:label="OrderDetailsFragment" />
 </navigation>

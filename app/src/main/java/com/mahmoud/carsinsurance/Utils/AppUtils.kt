@@ -4,6 +4,7 @@ package com.mahmoud.carsinsurance.Utils
 import android.app.Activity
 import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Environment
@@ -128,6 +129,37 @@ class AppUtils {
 
     fun makeToast(context: Context?, msg: String?) {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+    }
+
+    fun makeAlterDialog(
+        context: Context?, title: String?, msg: String?,
+        txtPositive: String?, onPositiveClickListener: DialogInterface.OnClickListener?,
+        txtNegative: String?, onNegativeClickListener: DialogInterface.OnClickListener?
+    ) {
+        val builder =
+            AlertDialog.Builder(context!!)
+        builder.setTitle(title).setIcon(R.mipmap.ic_launcher)
+        builder.setMessage(msg)
+            .setCancelable(false)
+            .setPositiveButton(txtPositive, onPositiveClickListener)
+            .setNegativeButton(txtNegative, onNegativeClickListener)
+        val alert = builder.create()
+        alert.show()
+    }
+
+
+    fun makeSuccessAlterDialog(
+        context: Context?, title: String?, msg: String?,
+        txtPositive: String?, onPositiveClickListener: DialogInterface.OnClickListener?
+    ) {
+        val builder =
+            AlertDialog.Builder(context!!)
+        builder.setTitle(title).setIcon(R.mipmap.ic_launcher)
+        builder.setMessage(msg)
+            .setCancelable(false)
+            .setPositiveButton("OK",onPositiveClickListener)
+        val alert = builder.create()
+        alert.show()
     }
 
 

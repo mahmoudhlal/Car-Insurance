@@ -30,13 +30,14 @@ class TakePhotoUtils {
     var mCurrentPhotoPath: String? = null
     private var bitmap: Bitmap? = null
 
-    private var Instance: TakePhotoUtils? = null
 
-    fun getInstance(): TakePhotoUtils? {
-        if (Instance == null) Instance = TakePhotoUtils()
-        return Instance
+    companion object {
+        private var Instance: TakePhotoUtils? = null
+        fun getInstance(): TakePhotoUtils? {
+            if (Instance == null) Instance = TakePhotoUtils()
+            return Instance
+        }
     }
-
 
     //region PHOTO
     fun SelectPhotoDialog(

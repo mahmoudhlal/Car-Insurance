@@ -43,5 +43,25 @@
     <string name="no_detected_address">No Detected Address</string>
     <string name="you_must_give_permissions_location">You must give permissions location</string>
     <string name="select_country">Select Country !</string>
+    <string name="diamond_insurance">Diamond Insurance</string>
+    <string name="silver_insurance">Silver Insurance</string>
+    <string name="golden_insurance">Golden Insurance</string>
+    <string name="car_name">Car Name</string>
+    <string name="car_model">Car Model</string>
+    <string name="fees">Fees</string>
+    <string name="save">Save</string>
+    <string name="address">Address</string>
+    <string name="car_color">Car Color</string>
+    <string name="send">Send</string>
+    <string name="car_type">Car Type</string>
+    <string name="refuse">Refuse</string>
+    <string name="approve">Approve</string>
+    <string name="bio">Bio</string>
+    <string name="card_no">Card Number</string>
+    <string name="expiration_date">Expiration Date</string>
+    <string name="card_holder">CardHolder\'s Name</string>
+    <string name="money">Money</string>
+    <string name="confirm_pay">Confirm Pay</string>
+    <string name="cvv">CVV</string>
 
 </resources>

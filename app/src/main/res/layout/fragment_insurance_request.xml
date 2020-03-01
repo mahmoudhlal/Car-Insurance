@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.user.company.tabs.InsuranceRequestFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/relDiamond"
+            android:background="@drawable/shape_diamond"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:background="@drawable/shape_diamond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imgDiamond"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="11dp"
+                />
+            </RelativeLayout>
+
+
+            <TextView
+                android:text="@string/diamond_insurance"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relSilver"
+            android:background="@drawable/shape_silver"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:background="@drawable/shape_silver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imgSilver"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="11dp"
+                />
+            </RelativeLayout>
+
+
+            <TextView
+                android:text="@string/silver_insurance"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relGolden"
+            android:background="@drawable/shape_gold"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:background="@drawable/shape_gold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imgGold"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="11dp"
+                />
+            </RelativeLayout>
+
+
+            <TextView
+                android:text="@string/golden_insurance"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:id="@+id/txtDetails"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:padding="5dp"
+            android:background="@drawable/border_shape"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            android:layout_marginTop="5dp"
+
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="4dp"
+                android:layout_margin="6dp"
+                android:id="@+id/btnAddAttachs"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="center_vertical"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_photo_camera"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recAttatchments"
+                />
+
+        </LinearLayout>
+
+
+
+        <EditText
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:hint="@string/car_name"
+            android:layout_marginStart="20dp"
+            android:visibility="visible"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/shape_border"
+            android:id="@+id/edtCarName"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:textColor="@color/colorBlack"
+            />
+
+        <EditText
+            android:hint="@string/car_model"
+            android:layout_marginStart="20dp"
+            android:visibility="visible"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/shape_border"
+            android:id="@+id/edtCarModel"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:textColor="@color/colorBlack"
+            />
+        <EditText
+            android:hint="@string/car_color"
+            android:layout_marginStart="20dp"
+            android:visibility="visible"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/shape_border"
+            android:id="@+id/edtCarColor"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:textColor="@color/colorBlack"
+            />
+
+        <RelativeLayout
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/input_layout_company"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/shape_border"
+            >
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/countrySpinner"
+                />
+
+        </RelativeLayout>
+
+
+
+        <EditText
+            android:hint="@string/fees"
+            android:layout_marginStart="20dp"
+            android:visibility="visible"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/shape_border"
+            android:id="@+id/edtFees"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:enabled="false"
+            android:clickable="true"
+            android:textColor="@color/colorBlack"
+            />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:background="@drawable/shape_btn_login"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="12sp"
+            android:id="@+id/btnSave"
+            android:text="@string/save"
+            android:textColor="@color/colorWhite"
+            />
+
+
+
+    </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

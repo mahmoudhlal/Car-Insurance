@@ -9,66 +9,145 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="110dp"
+    android:layout_height="wrap_content"
     android:background="@color/colorItem"
     android:layout_margin="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        app:cardCornerRadius="35dp"
-        android:id="@+id/card"
-        app:cardBackgroundColor="@color/colorBlue"
-        android:layout_centerVertical="true"
-        android:layout_margin="8dp"
-        >
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="5dp"
-            android:src="@drawable/ic_user"
-            android:layout_gravity="center"
-            />
-
-    </androidx.cardview.widget.CardView>
 
     <LinearLayout
-        android:layout_toEndOf="@+id/card"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerVertical="true"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorBlue"
-            android:id="@+id/txtName"
-            android:layout_marginBottom="3dp"
-            />
-        <TextView
-            android:textColor="@color/colorBlue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:id="@+id/txtType"
-            android:layout_marginBottom="3dp"
-            />
-        <TextView
-            android:textColor="@color/colorBlue"
-            android:id="@+id/txtCreate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:layout_marginBottom="3dp"
-            />
+            android:background="@color/colorItem"
+            android:layout_margin="5dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:cardCornerRadius="35dp"
+                android:id="@+id/card"
+                android:layout_marginBottom="10dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/colorBlue"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="10dp"
+                >
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_user"
+                    android:layout_gravity="center"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_toEndOf="@+id/card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/lin"
+                android:layout_centerVertical="true"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="fsdfsdsd"
+                    android:textColor="@color/colorBlue"
+                    android:id="@+id/txtName"
+                    android:layout_marginBottom="3dp"
+                    />
+                <TextView
+                    android:textColor="@color/colorBlue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="sdfsdfsdfsdsfs dcljhn ckhc kdjclcn"
+                    android:id="@+id/txtBio"
+                    android:layout_marginBottom="3dp"
+                    />
+                <TextView
+                    android:textColor="@color/colorBlue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="sdfsdfsdfsdsfs"
+                    android:id="@+id/txtType"
+                    android:layout_marginBottom="3dp"
+                    />
+                <TextView
+                    android:text="fdfdfssfsdfsdf"
+                    android:textColor="@color/colorBlue"
+                    android:id="@+id/txtCreate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="3dp"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+            android:layout_marginTop="8dp"
+            android:id="@+id/relBtns"
+            android:visibility="gone"
+            android:layout_marginEnd="48dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:background="@drawable/shape_btn_login"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:id="@+id/btnApprove"
+                android:layout_alignParentStart="true"
+                android:text="@string/approve"
+                android:textColor="@color/colorWhite"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:background="@drawable/shape_gold"
+                android:textSize="12sp"
+                android:id="@+id/btnRefuse"
+                android:text="@string/refuse"
+                android:visibility="visible"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/colorWhite"
+                />
+
+        </RelativeLayout>
+
 
     </LinearLayout>
+
 
 </RelativeLayout>
 </layout>
