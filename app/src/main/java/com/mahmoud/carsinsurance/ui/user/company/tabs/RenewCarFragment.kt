@@ -6,6 +6,7 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -34,6 +35,7 @@ import kotlinx.android.synthetic.main.fragment_insurance_request.recAttatchments
 import kotlinx.android.synthetic.main.fragment_renew_car.*
 import okhttp3.MultipartBody
 import java.util.*
+import kotlin.math.log
 
 /**
  * A simple [Fragment] subclass.
@@ -85,7 +87,7 @@ class RenewCarFragment : Fragment() , View.OnClickListener , ImagesAdapter.OnIte
         btnAddAttachs.setOnClickListener(this)
         btnReSave.setOnClickListener(this)
         relAddress.setOnClickListener(this)
-        edtFeees.setOnClickListener(this)
+        relFeees.setOnClickListener(this)
 
         ////add attaches
         recAttatchments.layoutManager = LinearLayoutManager(
@@ -127,7 +129,7 @@ class RenewCarFragment : Fragment() , View.OnClickListener , ImagesAdapter.OnIte
             R.id.btnReSave ->{validate()}
             R.id.relAddress ->{
                 openMapNow?.openMap()}
-            R.id.edtFeees ->{
+            R.id.relFeees ->{
                 inflatePaymentDialog()}
         }
     }
@@ -266,6 +268,7 @@ class RenewCarFragment : Fragment() , View.OnClickListener , ImagesAdapter.OnIte
         money: String?,
         cvv: String?
     ) {
+        Log.d("OOO",cardNum!!)
         paymentItem = PaymentItem(cardNum, eDate, name, money, cvv)
         edtFeees.setText("Your card information will be reviewed")
         paymentDialog?.dismiss()

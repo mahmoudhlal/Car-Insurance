@@ -35,6 +35,8 @@
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
+            android:layout_toStartOf="@+id/txtInsurance"
+            android:layout_marginEnd="5dp"
             android:layout_toEndOf="@+id/card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,6 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
+
                 android:id="@+id/txtCarName"
                 android:layout_marginBottom="3dp"
                 />

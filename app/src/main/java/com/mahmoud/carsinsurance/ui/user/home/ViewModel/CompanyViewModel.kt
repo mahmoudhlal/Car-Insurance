@@ -7,6 +7,7 @@ import com.mahmoud.carsinsurance.Utils.NetworkState
 import com.mahmoud.carsinsurance.models.GeneralResponse.GeneralLiveData
 import com.mahmoud.carsinsurance.models.addOrderResponse.AddOrderResponse
 import com.mahmoud.carsinsurance.models.companiesResponse.CompaniesItem
+import com.mahmoud.carsinsurance.models.notificationCount.NotificationCount
 import com.mahmoud.carsinsurance.ui.user.home.repository.CompanyRepository
 import com.mahmoud.carsinsurance.ui.user.home.repository.OrderRepository
 import com.mahmoud.myfirstkotlinapp.Remote.ApiUtils
@@ -22,6 +23,7 @@ class CompanyViewModel(private val repository: CompanyRepository?) : ViewModel()
     private var addOrder: GeneralLiveData<AddOrderResponse> = GeneralLiveData()
     private var addRenewOrder: GeneralLiveData<AddOrderResponse> = GeneralLiveData()
     private var approveCompanyRequest: GeneralLiveData<AddOrderResponse> = GeneralLiveData()
+    var noCount: GeneralLiveData<NotificationCount> = GeneralLiveData()
 
 
     fun getCompanies() {
@@ -67,12 +69,12 @@ class CompanyViewModel(private val repository: CompanyRepository?) : ViewModel()
                 response: Response<AddOrderResponse?>
             ) {
                 if (response.isSuccessful) {
-                    if (response.body() != null) {
+                    if (response.body()?.status!!) {
                         addOrder.postSuccess(response.body()!!)
                     }else{
                         addOrder.postError(
                             com.mahmoud.carsinsurance.models.GeneralResponse.Error(
-                                response.body()?.data,
+                                response.body()?.msg,
                                 null,
                                 response.code(),
                                 true
@@ -120,19 +122,20 @@ class CompanyViewModel(private val repository: CompanyRepository?) : ViewModel()
         attach: Array<MultipartBody.Part?>?
     ) {
         addRenewOrder.postLoading()
-        ApiUtils.getAppService().addOrder(Authorization,id, type,address, lat, lng, card_no,expire_date, name, amount, cvv ,attach)
+        ApiUtils.getAppService().addOrder(Authorization,id, type,address, lat, lng,
+            card_no,expire_date, name, amount, cvv ,attach)
             ?.enqueue(object : Callback<AddOrderResponse?> {
             override fun onResponse(
                 call: Call<AddOrderResponse?>,
                 response: Response<AddOrderResponse?>
             ) {
                 if (response.isSuccessful) {
-                    if (response.body() != null) {
+                    if (response.body()?.status!!) {
                         addRenewOrder.postSuccess(response.body()!!)
                     }else{
                         addRenewOrder.postError(
                             com.mahmoud.carsinsurance.models.GeneralResponse.Error(
-                                response.body()?.data,
+                                response.body()?.msg,
                                 null,
                                 response.code(),
                                 true
@@ -179,12 +182,12 @@ class CompanyViewModel(private val repository: CompanyRepository?) : ViewModel()
                 response: Response<AddOrderResponse?>
             ) {
                 if (response.isSuccessful) {
-                    if (response.body() != null) {
+                    if (response.body()?.status!!) {
                         approveCompanyRequest.postSuccess(response.body()!!)
                     }else{
                         approveCompanyRequest.postError(
                             com.mahmoud.carsinsurance.models.GeneralResponse.Error(
-                                response.body()?.data,
+                                response.body()?.msg,
                                 null,
                                 response.code(),
                                 true
@@ -216,5 +219,50 @@ class CompanyViewModel(private val repository: CompanyRepository?) : ViewModel()
         })
     }
 
+  fun getNotificationCount(Authorization: String?) {
+      noCount.postLoading()
+      ApiUtils.getAppService().getNotificationsCount(Authorization)
+          .enqueue(object : Callback<NotificationCount?> {
+              override fun onResponse(
+                  call: Call<NotificationCount?>,
+                  response: Response<NotificationCount?>
+              ) {
+                  if (response.isSuccessful) {
+                      if (response.body()?.status!!) {
+                          noCount.postSuccess(response.body()!!)
+                      }else{
+                          noCount.postError(
+                              com.mahmoud.carsinsurance.models.GeneralResponse.Error(
+                                  response.body()?.msg,
+                                  null,
+                                  response.code(),
+                                  true
+                              )
+                          )
+                      }
+                  } else {
+                      noCount.postError( com.mahmoud.carsinsurance.models.GeneralResponse.Error(
+                          response.message(),
+                          null,
+                          response.code(),
+                          true
+                      ))
+                  }
+              }
+
+              override fun onFailure(
+                  call: Call<NotificationCount?>,
+                  t: Throwable
+              ) {
+                  val errorMessage = t.message
+                  noCount.postError( com.mahmoud.carsinsurance.models.GeneralResponse.Error(
+                      errorMessage,
+                      t,
+                      0,
+                      true
+                  ))
+              }
+          })
+    }
 
 }

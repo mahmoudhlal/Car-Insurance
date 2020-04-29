@@ -3,6 +3,7 @@ package com.mahmoud.myfirstkotlinapp.Remote
 import com.mahmoud.carsinsurance.models.AuthResponse.AuthResponse
 import com.mahmoud.carsinsurance.models.addOrderResponse.AddOrderResponse
 import com.mahmoud.carsinsurance.models.companiesResponse.CompaniesResponse
+import com.mahmoud.carsinsurance.models.notificationCount.NotificationCount
 import com.mahmoud.carsinsurance.models.notificationResponse.NotificationResponse
 import com.mahmoud.carsinsurance.models.requestsResponse.OrdersResponse
 import okhttp3.MultipartBody
@@ -46,6 +47,11 @@ interface AppService {
         @Header("Authorization") apiKey: String,
         @Query("page") page: Int
     ): Call<OrdersResponse>
+
+    @GET("count-notifications")
+    fun getNotificationsCount(
+        @Header("Authorization") apiKey: String?
+    ): Call<NotificationCount>
 
     @Multipart
     @POST("add-order/{id}")

@@ -63,5 +63,7 @@
     <string name="money">Money</string>
     <string name="confirm_pay">Confirm Pay</string>
     <string name="cvv">CVV</string>
+    <string name="feees">Fees 100</string>
+
 
 </resources>

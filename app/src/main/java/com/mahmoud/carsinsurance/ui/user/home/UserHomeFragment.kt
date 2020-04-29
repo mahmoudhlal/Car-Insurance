@@ -40,6 +40,12 @@ class UserHomeFragment : Fragment() , CompanyAdapter.OnItemClickListener,View.On
         viewModel = ViewModelProvider(this,Injection.provideViewModelFactory(context = context!!))
             .get(CompanyViewModel::class.java)
         viewModel!!.getCompanies()
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel!!.getNotificationCount(SharedPrefManager.getInstance(context)?.getToken())
     }
 
     override fun onCreateView(
@@ -73,7 +79,7 @@ class UserHomeFragment : Fragment() , CompanyAdapter.OnItemClickListener,View.On
         logout.setOnClickListener(this)
         messages.setOnClickListener(this)
 
-        viewModel?.observeApproval()?.observe(this,
+        viewModel?.observeApproval()?.observe(viewLifecycleOwner,
             androidx.lifecycle.Observer {
                 when (it.getStatus()) {
                     Status.Loading -> {
@@ -89,6 +95,26 @@ class UserHomeFragment : Fragment() , CompanyAdapter.OnItemClickListener,View.On
                             Toast.LENGTH_SHORT).show()
                         viewModel!!.observeCompanies()?.value
                             ?.dataSource?.invalidate()
+                    }
+                    else -> {
+                    }
+                }
+            })
+
+        viewModel?.noCount?.observe(viewLifecycleOwner,
+            androidx.lifecycle.Observer {
+                when (it.getStatus()) {
+                    Status.Loading -> {
+                    }
+                    Status.Failure -> {
+                        Toast.makeText(context,it.getError()?.msg, Toast.LENGTH_SHORT).show()
+                    }
+                    Status.Success -> {
+                       if (it.getData()?.data!! > 0){
+                           cNot.visibility = View.VISIBLE
+                       }else{
+                           cNot.visibility = View.GONE
+                       }
                     }
                     else -> {
                     }

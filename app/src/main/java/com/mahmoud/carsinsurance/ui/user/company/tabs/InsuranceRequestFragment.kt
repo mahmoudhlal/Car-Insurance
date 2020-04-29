@@ -87,7 +87,7 @@ class InsuranceRequestFragment : Fragment(), View.OnClickListener, ImagesAdapter
         relGolden.setOnClickListener(this)
         relSilver.setOnClickListener(this)
         btnSave.setOnClickListener(this)
-        edtFees.setOnClickListener(this)
+        relFees.setOnClickListener(this)
 
         val arrayAdapter = ArrayAdapter<String>(
             context!!, android.R.layout.simple_spinner_item,
@@ -173,8 +173,8 @@ class InsuranceRequestFragment : Fragment(), View.OnClickListener, ImagesAdapter
             R.id.btnSave -> {
                 validate()
             }
-            R.id.edtFees -> {
-                validate()
+            R.id.relFees -> {
+                inflatePaymentDialog()
             }
         }
     }

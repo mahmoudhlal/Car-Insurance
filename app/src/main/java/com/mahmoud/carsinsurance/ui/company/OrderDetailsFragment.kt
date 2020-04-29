@@ -10,6 +10,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mahmoud.carsinsurance.Injection
 import com.mahmoud.carsinsurance.R
@@ -59,10 +60,13 @@ class OrderDetailsFragment : Fragment(), View.OnClickListener, ImagesAdapter.OnI
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
         btnApprove.setOnClickListener(this)
         btnRefuse.setOnClickListener(this)
         btnBack.setOnClickListener(this)
+
         fillView()
+
         viewModel?.observeHandleOrder()?.observe(viewLifecycleOwner,
             androidx.lifecycle.Observer {
                 when (it.getStatus()) {
@@ -80,12 +84,13 @@ class OrderDetailsFragment : Fragment(), View.OnClickListener, ImagesAdapter.OnI
                     Status.Success -> {
                         createMessageDialog!!.isLoading(false)
                         createMessageDialog!!.dismiss()
-                        if (HANDLE_TYPE.equals("refuse"))
+                        //if (HANDLE_TYPE.equals("refuse"))
                             Toast.makeText(
                                 context,
                                 "message has been sent successfully",
                                 Toast.LENGTH_SHORT
                             ).show()
+                        CompanyHomeFragment.isRefresh=true
                         navController?.navigateUp()
                     }
                 }
@@ -93,7 +98,7 @@ class OrderDetailsFragment : Fragment(), View.OnClickListener, ImagesAdapter.OnI
     }
 
     private fun fillView() {
-        if (order?.status != 3)
+        if (order?.status != 0)
             relBtns.visibility = View.GONE
         else
             relBtns.visibility = View.VISIBLE
@@ -134,14 +139,29 @@ class OrderDetailsFragment : Fragment(), View.OnClickListener, ImagesAdapter.OnI
         //fill data
         if (order?.type.equals("renew")) {
             edtAddress.visibility = View.VISIBLE
-            edtCarNamee.setText(order?.carName)
-        } else
-            edtAddress.visibility = View.GONE
+            edtCarNamee.visibility = View.GONE
+            edtCarModell.visibility = View.GONE
+            edtCarColorr.visibility = View.GONE
+            edtCarTypee.visibility = View.GONE
 
-        edtCarNamee.setText(order?.carName)
-        edtCarModell.setText(order?.carYear.toString())
-        edtCarColorr.setText(order?.carColor)
-        edtCarTypee.setText(order?.carType)
+            txtCarName.visibility = View.GONE
+            txtCarModel.visibility = View.GONE
+            txtCarColor.visibility = View.GONE
+            txtCarType.visibility = View.GONE
+
+            relDiamond.visibility = View.GONE
+            relSilver.visibility = View.GONE
+            relGold.visibility = View.GONE
+            edtAddress.setText(order?.address)
+        } else {
+            edtAddress.visibility = View.GONE
+            txtAdd.visibility = View.GONE
+            edtCarNamee.setText(order?.carName)
+            edtCarModell.setText(order?.carYear.toString())
+            edtCarColorr.setText(order?.carColor)
+            edtCarTypee.setText(order?.carType)
+        }
+
         edtFeess.setText(order?.carType)
     }
 
@@ -149,15 +169,17 @@ class OrderDetailsFragment : Fragment(), View.OnClickListener, ImagesAdapter.OnI
         when (v?.id) {
             R.id.btnApprove -> {
                 HANDLE_TYPE = "approve"
-                viewModel?.handleOrder(
+                inflateSendMessageDialog()
+                /*viewModel?.handleOrder(
                     SharedPrefManager.getInstance(context)?.getToken()
                     , order?.id, 1, null
-                )
+                )*/
             }
             R.id.btnRefuse -> {
                 HANDLE_TYPE = "refuse"
                 inflateSendMessageDialog()
-            } R.id.btnBack -> {
+            }
+            R.id.btnBack -> {
                 navController?.navigateUp()
             }
         }
@@ -189,7 +211,7 @@ class OrderDetailsFragment : Fragment(), View.OnClickListener, ImagesAdapter.OnI
     override fun onClick(msg: String?) {
         viewModel?.handleOrder(
             SharedPrefManager.getInstance(context)?.getToken()
-            , order?.id, 0, msg
+            , order?.id, if(HANDLE_TYPE.equals("refuse")) 0 else 1 , msg
         )
     }
 

@@ -19,7 +19,7 @@
                 android:layout_height="150dp"
                 android:gravity="start"
                 android:padding="8dp"
-                android:hint="Refuse reason (optional)"
+                android:hint="Reason (optional)"
                 android:id="@+id/edtMessage"
                 android:layout_margin="4dp"
                 android:background="@drawable/shape_border"

@@ -243,8 +243,11 @@
 
 
 
-        <EditText
-            android:hint="@string/fees"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+            android:hint="@string/feees"
             android:layout_marginStart="20dp"
             android:visibility="visible"
             android:paddingStart="18dp"
@@ -261,6 +264,14 @@
             android:clickable="true"
             android:textColor="@color/colorBlack"
             />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/relFees"
+                />
+
+        </RelativeLayout>
 
         <Button
             android:layout_width="120dp"

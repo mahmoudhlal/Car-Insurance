@@ -27,6 +27,9 @@ import kotlinx.android.synthetic.main.fragment_user_home.logout
  */
 class CompanyHomeFragment : Fragment() , OrderAdapter.OnItemClickListener,View.OnClickListener {
 
+    companion object{
+        var isRefresh : Boolean = false
+    }
     private var viewModel: OrderViewModel?=null
     private var navController: NavController?=null
     private var orderAdapter : OrderAdapter?= null
@@ -35,6 +38,14 @@ class CompanyHomeFragment : Fragment() , OrderAdapter.OnItemClickListener,View.O
         viewModel = ViewModelProvider(this, Injection.provideOrderViewModelFactory(context = context!!))
             .get(OrderViewModel::class.java)
         viewModel!!.getOrders()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (isRefresh){
+            viewModel!!.observeOrders()?.value?.dataSource?.invalidate()
+            isRefresh=false
+        }
     }
 
     override fun onCreateView(

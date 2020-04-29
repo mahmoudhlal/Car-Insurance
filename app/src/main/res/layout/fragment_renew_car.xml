@@ -77,9 +77,11 @@
 
     </RelativeLayout>
 
-
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <EditText
-        android:hint="@string/fees"
+        android:hint="@string/feees"
         android:layout_marginStart="20dp"
         android:visibility="visible"
         android:paddingStart="18dp"
@@ -96,6 +98,16 @@
         android:clickable="true"
         android:textColor="@color/colorBlack"
         />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+
+            android:layout_centerVertical="true"
+            android:id="@+id/relFeees"
+            />
+
+    </RelativeLayout>
+
 
     <Button
         android:layout_width="120dp"

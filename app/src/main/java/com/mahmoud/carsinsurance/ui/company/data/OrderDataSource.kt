@@ -45,7 +45,7 @@ class OrderDataSource(private var token: String?) :
                 response: Response<OrdersResponse?>
             ) {
                 if (response.isSuccessful) {
-                    if (response.body() != null) {
+                    if (response.body()?.status!!) {
                         response.body()?.data?.orders?.let {
                             callback.onResult(
                                 it,
@@ -55,6 +55,8 @@ class OrderDataSource(private var token: String?) :
                         }
                         networkState!!.postValue(NetworkState.LOADED)
                         Log.i(TAG,"loadInitial")
+                    }else{
+                        Log.i(TAG,response.body()?.msg!!)
                     }
                 } else {
                     networkState!!.postValue(
@@ -87,7 +89,7 @@ class OrderDataSource(private var token: String?) :
                 ) {
                     Log.i(TAG,params.key.toString() + "")
                     if (response.isSuccessful) {
-                        if (response.body() != null) {
+                        if (response.body()?.status!!) {
                             val key =
                                 if (response.body()!!.data?.paginate?.totalPages!! > params.key)
                                     params.key + 1 else null

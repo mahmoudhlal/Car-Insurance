@@ -14,7 +14,7 @@ import com.mahmoud.carsinsurance.databinding.NetworkItemBinding
 import com.mahmoud.carsinsurance.models.requestsResponse.OrdersItem
 import kotlinx.android.synthetic.main.view_user_request.view.*
 
-class OrderAdapter() : PagedListAdapter<OrdersItem, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
+class  OrderAdapter() : PagedListAdapter<OrdersItem, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
     private val TYPE_PROGRESS = 0
     private val TYPE_ITEM = 1
 
@@ -93,7 +93,8 @@ class OrderAdapter() : PagedListAdapter<OrdersItem, RecyclerView.ViewHolder>(DIF
 
         fun bind(ordersItem: OrdersItem){
             txtUserName.text = ordersItem.userName
-            txtCarName.text = ordersItem.carName
+            txtCarName.text =
+                if(!ordersItem.type.equals("renew")) ordersItem.carName else ordersItem.address
             txtCarModel.text = ordersItem.carType
             txtInsurance.text = ordersItem.type
             txtInType.text = ordersItem.insuranceType

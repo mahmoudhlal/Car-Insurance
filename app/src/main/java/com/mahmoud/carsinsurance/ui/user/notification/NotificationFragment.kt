@@ -27,7 +27,7 @@ class NotificationFragment : Fragment(),View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this, 
-            Injection.provideViewModelFactory(context = context!!))
+            Injection.provideNotificationViewModelFactory(context = context!!))
             .get(NotificationViewModel::class.java)
         viewModel!!.getNotifications()
     }
@@ -47,7 +47,7 @@ class NotificationFragment : Fragment(),View.OnClickListener {
         notificationAdapter = NotificationAdapter()
         recNotifications.adapter = notificationAdapter
         recNotifications.setHasFixedSize(true)
-
+        btnBack.setOnClickListener(this)
         viewModel?.observeNotifications()?.observe(viewLifecycleOwner, Observer { cPagedList->
             run {
                 notificationAdapter?.submitList(cPagedList)

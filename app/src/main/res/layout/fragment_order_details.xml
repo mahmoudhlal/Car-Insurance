@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical"
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,7 +19,7 @@
             android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:layout_margin="10dp"
-            android:padding="10dp"
+            android:padding="13dp"
             android:scaleX="-1"
             android:src="@drawable/ic_back" />
 
@@ -53,8 +54,12 @@
     </RelativeLayout>
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <ScrollView
+        android:fillViewport="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -204,7 +209,7 @@
                 android:text="@string/car_name"
                 android:layout_marginStart="20dp"
                 android:visibility="visible"
-
+                android:id="@+id/txtCarName"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_width="wrap_content"
@@ -234,7 +239,7 @@
                 android:text="@string/car_model"
                 android:layout_marginStart="20dp"
                 android:visibility="visible"
-
+                android:id="@+id/txtCarModel"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_width="wrap_content"
@@ -263,7 +268,7 @@
                 android:text="@string/car_color"
                 android:layout_marginStart="20dp"
                 android:visibility="visible"
-
+                android:id="@+id/txtCarColor"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_width="wrap_content"
@@ -293,7 +298,7 @@
                 android:text="@string/car_type"
                 android:layout_marginStart="20dp"
                 android:visibility="visible"
-
+                android:id="@+id/txtCarType"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_width="wrap_content"
@@ -354,7 +359,7 @@
                 android:text="@string/address"
                 android:layout_marginStart="20dp"
                 android:visibility="visible"
-
+                android:id="@+id/txtAdd"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_width="wrap_content"
@@ -377,6 +382,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:padding="5dp"
+                android:layout_marginBottom="15dp"
                 android:textColor="@color/colorBlack"
                 />
 
@@ -423,6 +429,9 @@
         </LinearLayout>
 
     </ScrollView>
+
+    </RelativeLayout>
+
 
 
 </LinearLayout>

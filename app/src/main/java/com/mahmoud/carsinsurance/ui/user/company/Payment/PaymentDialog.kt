@@ -37,7 +37,7 @@ class PaymentDialog : DialogFragment() , View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sendMsg.setOnClickListener(mOnConfirmClickListener)
-        edtExpiration.setOnClickListener(this)
+        relDate.setOnClickListener(this)
     }
 
     private val mOnConfirmClickListener =
@@ -95,7 +95,7 @@ class PaymentDialog : DialogFragment() , View.OnClickListener {
             context!!,
             OnDateSetListener { _: DatePicker?, year: Int, month: Int, dayOfMonth: Int ->
                 edtExpiration.setText(
-                    String.format(Locale.US, "%d-%d-%d", year, month + 1, dayOfMonth))
+                    String.format(Locale.US, "%d / %d",  month + 1 , year/*, dayOfMonth*/))
             },
             yearNum,
             monthNum,
