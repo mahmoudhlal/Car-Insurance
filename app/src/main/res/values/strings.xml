@@ -64,6 +64,8 @@
     <string name="confirm_pay">Confirm Pay</string>
     <string name="cvv">CVV</string>
     <string name="feees">Fees 100</string>
+    <string name="your_age">Your Age</string>
+    <string name="NumOfAccident">Number Of Accident</string>
 
 
 </resources>

@@ -19,6 +19,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="automatic"
+                android:gravity="center_vertical"
+                android:id="@+id/autoRadio"
+                />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="manual"
+                android:id="@+id/manualRadio"
+                />
+
+
+        </RadioGroup>
 
         <RelativeLayout
             android:id="@+id/relDiamond"
@@ -125,6 +152,7 @@
             android:layout_marginBottom="10dp"
             android:id="@+id/txtDetails"
             android:visibility="gone"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
@@ -240,6 +268,42 @@
                 />
 
         </RelativeLayout>
+
+        <EditText
+            android:hint="@string/your_age"
+            android:layout_marginStart="20dp"
+            android:visibility="visible"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/shape_border"
+            android:id="@+id/edtAge"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:textColor="@color/colorBlack"
+            />
+
+        <EditText
+            android:hint="@string/NumOfAccident"
+            android:layout_marginStart="20dp"
+            android:visibility="visible"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/shape_border"
+            android:id="@+id/edtNumOfAccident"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:textColor="@color/colorBlack"
+            />
 
 
 

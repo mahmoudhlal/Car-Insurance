@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -91,7 +92,7 @@ class InsuranceRequestFragment : Fragment(), View.OnClickListener, ImagesAdapter
 
         val arrayAdapter = ArrayAdapter<String>(
             context!!, android.R.layout.simple_spinner_item,
-            arrayOf("Car Type", "Salon", "Geep")
+            arrayOf("Car Type", "Salon", "Geep", "Sport")
         )
         val onItemSelectedListener: AdapterView.OnItemSelectedListener? =
             object : AdapterView.OnItemSelectedListener {
@@ -153,6 +154,50 @@ class InsuranceRequestFragment : Fragment(), View.OnClickListener, ImagesAdapter
                 }
             })
 
+        autoRadio.setOnCheckedChangeListener{btn , isChecked ->
+            if (isChecked){
+                if (carType == null || edtCarModel.text.toString().isEmpty()
+                    || edtAge.text.toString().isEmpty() || edtNumOfAccident.text.toString().isEmpty()) {
+                    radioGroup.clearCheck()
+                    Toast.makeText(
+                        context,
+                        "Select car type and car model and number of accident and your age first!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }else{
+
+                    if (edtAge.text.toString().toInt() < 40
+                        && Integer.valueOf(edtCarModel.text.toString().trim()) > Calendar.getInstance().get(Calendar.YEAR) - 5
+                        && edtNumOfAccident.text.toString().toInt() == 0
+                        && carType.equals("Sport")
+                            ){
+                        INSURANCE_TYPE = "diamond"
+                        imgDiamond.setImageDrawable(resources.getDrawable(R.drawable.ic_tick))
+                        imgGold.setImageDrawable(null)
+                        imgSilver.setImageDrawable(null)
+                        txtDetails.visibility = View.VISIBLE
+                        txtDetails.text = "diamond insurance"
+                    }else if(edtAge.text.toString().toInt() < 40
+                        && Integer.valueOf(edtCarModel.text.toString().trim()) > Calendar.getInstance().get(Calendar.YEAR) - 5
+                        && edtNumOfAccident.text.toString().toInt() == 0
+                        && !carType.equals("Sport")){
+                        INSURANCE_TYPE = "gold"
+                        imgGold.setImageDrawable(resources.getDrawable(R.drawable.ic_tick))
+                        imgDiamond.setImageDrawable(null)
+                        imgSilver.setImageDrawable(null)
+                        txtDetails.visibility = View.VISIBLE
+                        txtDetails.text = "gold insurance"
+                    }else{
+                        INSURANCE_TYPE = "silver"
+                        imgSilver.setImageDrawable(resources.getDrawable(R.drawable.ic_tick))
+                        imgGold.setImageDrawable(null)
+                        imgDiamond.setImageDrawable(null)
+                        txtDetails.visibility = View.VISIBLE
+                        txtDetails.text = "silver insurance"
+                    }
+                }
+            }
+        }
 
     }
 
