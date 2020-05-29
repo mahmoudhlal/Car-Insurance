@@ -169,7 +169,8 @@ class OrderDetailsFragment : Fragment(), View.OnClickListener, ImagesAdapter.OnI
         when (v?.id) {
             R.id.btnApprove -> {
                 HANDLE_TYPE = "approve"
-                inflateSendMessageDialog()
+                handleOrder("Your request has been approved and the representative will send to you")
+                //inflateSendMessageDialog()
                 /*viewModel?.handleOrder(
                     SharedPrefManager.getInstance(context)?.getToken()
                     , order?.id, 1, null
@@ -177,7 +178,9 @@ class OrderDetailsFragment : Fragment(), View.OnClickListener, ImagesAdapter.OnI
             }
             R.id.btnRefuse -> {
                 HANDLE_TYPE = "refuse"
-                inflateSendMessageDialog()
+                handleOrder("Sorry, your request was rejected")
+
+                //inflateSendMessageDialog()
             }
             R.id.btnBack -> {
                 navController?.navigateUp()
@@ -209,6 +212,13 @@ class OrderDetailsFragment : Fragment(), View.OnClickListener, ImagesAdapter.OnI
     }
 
     override fun onClick(msg: String?) {
+        viewModel?.handleOrder(
+            SharedPrefManager.getInstance(context)?.getToken()
+            , order?.id, if(HANDLE_TYPE.equals("refuse")) 0 else 1 , msg
+        )
+    }
+
+    private fun handleOrder(msg : String){
         viewModel?.handleOrder(
             SharedPrefManager.getInstance(context)?.getToken()
             , order?.id, if(HANDLE_TYPE.equals("refuse")) 0 else 1 , msg

@@ -90,7 +90,7 @@
                 android:gravity="start|center_vertical"
                 android:padding="8dp"
                 android:enabled="false"
-                android:text="100"
+                android:text="100 KD"
                 android:hint="@string/money"
                 android:layout_weight="1"
                 android:textSize="14sp"

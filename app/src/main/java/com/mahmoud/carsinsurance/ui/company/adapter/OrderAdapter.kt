@@ -90,6 +90,7 @@ class  OrderAdapter() : PagedListAdapter<OrdersItem, RecyclerView.ViewHolder>(DI
         var txtCarModel: TextView = itemView.txtCarModel
         var txtInsurance: TextView = itemView.txtInsurance
         var txtInType: TextView = itemView.txtInType
+        var txtStatus: TextView = itemView.txtStatus
 
         fun bind(ordersItem: OrdersItem){
             txtUserName.text = ordersItem.userName

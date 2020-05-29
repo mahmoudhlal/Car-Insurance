@@ -16,25 +16,47 @@
         android:layout_marginTop="15dp"
         >
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="4dp"
-            android:layout_margin="6dp"
-            android:id="@+id/btnAddAttachs"
-            android:layout_marginEnd="10dp"
+        <LinearLayout
             android:layout_gravity="center_vertical"
-            >
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <ImageView
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="4dp"
+                android:layout_margin="6dp"
+                android:id="@+id/btnAddAttachs"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_photo_camera"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_photo_camera"
+                android:layout_gravity="center_horizontal"
+                android:textSize="12sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorBlack"
+                android:text="Upload car book"
                 />
 
-        </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

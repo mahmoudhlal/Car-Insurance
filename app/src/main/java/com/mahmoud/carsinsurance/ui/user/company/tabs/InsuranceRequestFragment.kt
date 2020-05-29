@@ -29,7 +29,6 @@ import com.mahmoud.carsinsurance.models.GeneralResponse.Status
 import com.mahmoud.carsinsurance.models.PaymentItem
 import com.mahmoud.carsinsurance.models.location.Location
 import com.mahmoud.carsinsurance.models.location.SharedViewModel
-import com.mahmoud.carsinsurance.ui.company.SendMessage.SendMessageDialog
 import com.mahmoud.carsinsurance.ui.user.company.CompanyDetailsFragment
 import com.mahmoud.carsinsurance.ui.user.company.Payment.PaymentDialog
 import com.mahmoud.carsinsurance.ui.user.company.Payment.PaymentOnClick
