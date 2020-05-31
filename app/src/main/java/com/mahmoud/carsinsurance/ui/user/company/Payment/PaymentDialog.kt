@@ -66,7 +66,7 @@ class PaymentDialog : DialogFragment() , View.OnClickListener {
                 edtCardNum.text.toString().trim(),
                 edtExpiration.text.toString().trim(),
                 edtCardHolder.text.toString().trim(),
-                edtMoney.text.toString().trim(),
+                "100",
                 edtCVV.text.toString().trim())
         }
 

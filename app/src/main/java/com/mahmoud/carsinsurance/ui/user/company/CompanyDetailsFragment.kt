@@ -53,7 +53,7 @@ class CompanyDetailsFragment : Fragment() , View.OnClickListener , OpenMapNow {
         btnBack.setOnClickListener(this)
         val offersAdapter = OffersAdapter()
         viewPager.adapter = offersAdapter
-        offersAdapter.updateList(Constants.offers.shuffled())
+        offersAdapter.updateList(Constants.offersImages.shuffled())
 
         val insuranceType = arrayOf("Insurance Request","Renew Car")
         val tabAdapter = TabAdapter(activity!!)

@@ -12,10 +12,10 @@ import kotlinx.android.synthetic.main.view_offer.view.*
 import java.util.*
 
 class OffersAdapter : PagerAdapter() {
-    private var galleryList: List<String> =
+    private var galleryList: List<Int> =
         ArrayList()
 
-    fun updateList(galleryList: List<String>) {
+    fun updateList(galleryList: List<Int>) {
         this.galleryList = galleryList
         notifyDataSetChanged()
     }
@@ -38,7 +38,9 @@ class OffersAdapter : PagerAdapter() {
             view, false
         )!!
         val txtTitle = layout.txtTitle
-        txtTitle.text = galleryList[position]
+        val img = layout.img
+        //txtTitle.text = galleryList[position]
+        img.setImageResource(galleryList[position])
         view.addView(layout, 0)
 
         return layout

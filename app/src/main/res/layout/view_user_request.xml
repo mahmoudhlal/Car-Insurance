@@ -109,7 +109,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:text="New"
-            android:visibility="gone"
+            android:visibility="visible"
             android:textStyle="bold"
             />
 

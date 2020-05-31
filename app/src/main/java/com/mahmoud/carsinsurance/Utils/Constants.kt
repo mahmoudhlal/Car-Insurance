@@ -23,6 +23,8 @@ class Constants {
         var IS_FILE = false
         var offers = arrayListOf("Best offers","pay 1020 per month","save your car",
             "best offers","pay 1020 per month","Save your car")
+        var offersImages = arrayListOf(R.drawable.f1,R.drawable.f2,
+            R.drawable.f3,R.drawable.f4,R.drawable.f5)
         var collers = arrayOf(R.color.colorAccent,R.color.colorAccent,R.color.colorAccent,R.color.colorAccent)
     }
 }

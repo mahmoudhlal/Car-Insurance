@@ -14,6 +14,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mahmoud.carsinsurance.Injection
 import com.mahmoud.carsinsurance.R
+import com.mahmoud.carsinsurance.Utils.AppUtils
 import com.mahmoud.carsinsurance.Utils.SharedPrefManager
 import com.mahmoud.carsinsurance.models.AttachItem
 import com.mahmoud.carsinsurance.models.GeneralResponse.Status
@@ -71,10 +72,12 @@ class OrderDetailsFragment : Fragment(), View.OnClickListener, ImagesAdapter.OnI
             androidx.lifecycle.Observer {
                 when (it.getStatus()) {
                     Status.Loading -> {
-                        createMessageDialog!!.isLoading(true)
+                        //createMessageDialog!!.isLoading(true)
+                        AppUtils.getInstance()?.showWaiting(context!!)
                     }
                     Status.Failure -> {
-                        createMessageDialog!!.isLoading(false)
+                        //createMessageDialog!!.isLoading(false)
+                        AppUtils.getInstance()?.dismissDialog()
                         Toast.makeText(
                             context,
                             it.getError()?.msg,
@@ -82,8 +85,9 @@ class OrderDetailsFragment : Fragment(), View.OnClickListener, ImagesAdapter.OnI
                         ).show()
                     }
                     Status.Success -> {
-                        createMessageDialog!!.isLoading(false)
-                        createMessageDialog!!.dismiss()
+                        AppUtils.getInstance()?.dismissDialog()
+                        //createMessageDialog!!.isLoading(false)
+                        //createMessageDialog!!.dismiss()
                         //if (HANDLE_TYPE.equals("refuse"))
                             Toast.makeText(
                                 context,
@@ -98,7 +102,7 @@ class OrderDetailsFragment : Fragment(), View.OnClickListener, ImagesAdapter.OnI
     }
 
     private fun fillView() {
-        if (order?.status != 0)
+        if (order?.status != 3)
             relBtns.visibility = View.GONE
         else
             relBtns.visibility = View.VISIBLE

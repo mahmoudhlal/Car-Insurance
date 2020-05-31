@@ -99,6 +99,12 @@ class  OrderAdapter() : PagedListAdapter<OrdersItem, RecyclerView.ViewHolder>(DI
             txtCarModel.text = ordersItem.carType
             txtInsurance.text = ordersItem.type
             txtInType.text = ordersItem.insuranceType
+            when(ordersItem.status){
+                0-> txtStatus.text = "Refused"
+                1-> txtStatus.text = "Accepted"
+                3-> txtStatus.text = "New"
+            }
+
         }
     }
 
